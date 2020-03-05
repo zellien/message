@@ -1,0 +1,20 @@
+{
+  "name"       : "zellien/message",
+  "description": "Simple implementation of messages for data transmission.",
+  "type"       : "library",
+  "license"    : "MIT",
+  "authors"    : [
+    {
+      "name" : "zellien",
+      "email": "development.sites@gmail.com"
+    }
+  ],
+  "require"    : {
+    "php": "^7.2"
+  },
+  "autoload"   : {
+    "psr-4": {
+      "Zellien\\Message\\": "src/"
+    }
+  }
+}
