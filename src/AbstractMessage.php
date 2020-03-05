@@ -16,7 +16,7 @@ use Zellien\Message\Exception\PropertyNotFoundException;
 
 /**
  * Class AbstractMessage
- * @package Kernel\Message
+ * @package Zellien\Message
  */
 abstract class AbstractMessage implements MessageInterface {
 
