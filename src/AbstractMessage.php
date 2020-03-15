@@ -27,13 +27,27 @@ abstract class AbstractMessage implements MessageInterface {
      */
     final public function __get($name) {
         $reflection = new ReflectionObject($this);
+
+        // If the name of the requested property matches the get[PropertyName] method,
+        // then this method will be called and should return the result.
+        $method = sprintf('get%s', ucfirst($name));
+        if ($reflection->hasMethod($method)) {
+            $method = $reflection->getMethod($method);
+            if ($method->isPrivate() || $method->isProtected()) {
+                $method->setAccessible(true);
+            }
+            return $method->invoke($this);
+        }
+
         if (!$reflection->hasProperty($name)) {
             throw new PropertyNotFoundException(sprintf('Property with name %s not found', $name));
         }
+
         $property = $reflection->getProperty($name);
         if ($property->isPrivate() || $property->isProtected()) {
             $property->setAccessible(true);
         }
+
         return $property->getValue($this);
     }
 
