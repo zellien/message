@@ -100,6 +100,13 @@ abstract class AbstractMessage implements MessageInterface {
     }
 
     /**
+     * @return array
+     */
+    public function jsonSerialize() {
+        return $this->toArray(true);
+    }
+
+    /**
      * @param string $name
      * @return string
      */
