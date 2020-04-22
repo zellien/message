@@ -15,6 +15,7 @@ use RuntimeException as BaseException;
 /**
  * Class PropertyNotFoundException
  * @package Zellien\Message\Exception
+ * @deprecated
  */
 class PropertyNotFoundException extends BaseException implements ExceptionInterface {
 
